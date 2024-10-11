@@ -72,4 +72,7 @@ dependencies {
     //Retrofit
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
+
+    //Compose navigation
+    implementation(libs.compose.nav)
 }

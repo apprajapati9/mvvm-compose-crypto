@@ -1,5 +1,7 @@
-package ca.apprajapati.mvvm_crypto.data.remote.dto
+package ca.apprajapati.mvvm_crypto.data.remote
 
+import ca.apprajapati.mvvm_crypto.data.remote.dto.CoinDetailDto
+import ca.apprajapati.mvvm_crypto.data.remote.dto.CoinDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 
