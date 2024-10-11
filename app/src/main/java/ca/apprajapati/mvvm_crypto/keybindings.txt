@@ -1,0 +1,21 @@
+======= Ajay P. Prajapati ========
+
+My android IDE keybindings:
+
+1. Shift + F2                       -> Jump to error
+2. Alt + R                          -> Build and run the app
+3. Alt + 1                          -> Jump to file section of the project to create and check files
+4. Alt + insert                     -> In files, create a new file/package
+5. Alt + back and forth arrow       -> switch between opened files
+6. Alt + F / Ctrl + f4              -> Closes current file in editor
+7. Ctrl + D -- F3 / Ctrl + L allows you to skip
+                                    -> Duplicates a line
+8. Ctrl + L / F3                    -> finds next occurrence
+9. Ctrl + Shift + L                 -> Select all occurrence
+10. Shift + Up down                 -> Selection of text
+11. Ctrl + - / +                    -> Expand or reduce code block
+12. Ctrl+W or Ctrl+shift+W          -> Expand or shrink selection of text
+13. Ctrl + E                        -> useful - shows everything recent to jump around
+14. Shift + C || column selection
+    Shift+ arrows to perform selection in column mode
+
