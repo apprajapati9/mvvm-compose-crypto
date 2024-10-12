@@ -1,9 +1,14 @@
 package ca.apprajapati.mvvm_crypto.di
 
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import ca.apprajapati.mvvm_crypto.common.Constants
 import ca.apprajapati.mvvm_crypto.data.remote.CoinsApi
 import ca.apprajapati.mvvm_crypto.data.repository.CoinRepositoryImpl
 import ca.apprajapati.mvvm_crypto.domain.repository.CoinRepository
+import ca.apprajapati.mvvm_crypto.domain.use_case.get_coin.GetCoinDetailsUseCase
+import ca.apprajapati.mvvm_crypto.domain.use_case.get_coins.GetCoinsUseCase
+import ca.apprajapati.mvvm_crypto.presentation.coin_list.CoinsListViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,4 +46,23 @@ object AppModule{
     fun provideRepository(api: CoinsApi) : CoinRepository {
         return CoinRepositoryImpl(api)
     }
+
+
+
+    /*
+        Below are the examples of abstracted DI, where no need to pass @Inject constructor
+        Check Readme.md for more information
+        TODO: would be great if we could do the same for viewmodels, look for such solution if exists/possible to.
+     */
+
+    @Provides
+    fun providesGetCoinUseCase(repository: CoinRepository): GetCoinsUseCase {
+        return GetCoinsUseCase(repository)
+    }
+
+    @Provides
+    fun providesGetCoinDetailUseCase(repository: CoinRepository): GetCoinDetailsUseCase {
+        return GetCoinDetailsUseCase(repository)
+    }
+
 }

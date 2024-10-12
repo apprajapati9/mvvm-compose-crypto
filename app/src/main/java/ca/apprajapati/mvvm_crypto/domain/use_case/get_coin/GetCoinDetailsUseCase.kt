@@ -11,7 +11,7 @@ import java.io.IOException
 import javax.inject.Inject
 
 //removed manual injection after Hilt DI
-class GetCoinDetailsUseCase @Inject constructor(private val repository: CoinRepository){
+class GetCoinDetailsUseCase(private val repository: CoinRepository){
 
     operator fun invoke(coinId: String): Flow<Resource<CoinDetail>> = flow{
 
