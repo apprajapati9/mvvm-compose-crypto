@@ -35,7 +35,8 @@ class CoinsListViewModel(val coinListUseCase: GetCoinsUseCase) : ViewModel() {
                         _coinListState.value = CoinListState(error = result.message)
                     }
 
-                    is Resource.Loading ->  CoinListState(isLoading = true)
+                    is Resource.Loading ->
+                        _coinListState.value = CoinListState(isLoading = true)
                 }
         }.launchIn(viewModelScope)
 

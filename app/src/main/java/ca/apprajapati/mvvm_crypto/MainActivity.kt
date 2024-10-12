@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+            //enableEdgeToEdge() // Disabling that mode TODO: check how to resize views and customize look
 
         val model : CoinsListViewModel = ViewModelProvider(
             this,

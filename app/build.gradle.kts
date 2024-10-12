@@ -1,6 +1,10 @@
+import com.google.devtools.ksp.gradle.model.Ksp
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp.plugin)
+    alias(libs.plugins.hilt.android)
 }
 
 android {
@@ -75,4 +79,12 @@ dependencies {
 
     //Compose navigation
     implementation(libs.compose.nav)
+
+    //Hilt DI
+    implementation(libs.hilt.di)
+    ksp(libs.hilt.android.compiler.ksp)
+    implementation(libs.hilt.viewmodel)
+    implementation(libs.hilt.nav.compose)
+    ksp(libs.hilt.compiler.ksp)
+
 }
