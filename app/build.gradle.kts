@@ -1,9 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    //alias(libs.plugins.com.google.devtools.ksp)
+    alias(libs.plugins.com.google.devtools.ksp)
     alias(libs.plugins.com.google.dagger.hilt.android)
-    alias(libs.plugins.org.jetbrains.kotlin.kapt)
+    //alias(libs.plugins.org.jetbrains.kotlin.kapt)
     alias(libs.plugins.compose.compiler)
 }
 
@@ -82,11 +82,8 @@ dependencies {
 
     //Hilt DI
     implementation(libs.hilt.di)
-    //ksp(libs.hilt.android.compiler.ksp)
-    kapt(libs.hilt.android.compiler)
-    //implementation(libs.hilt.viewmodel)
+    ksp(libs.hilt.android.compiler)
     implementation(libs.hilt.nav.compose)
-    //ksp(libs.hilt.compiler.ksp)
-    kapt(libs.hilt.compiler.ksp)
+    ksp(libs.hilt.compiler.ksp)
 
 }

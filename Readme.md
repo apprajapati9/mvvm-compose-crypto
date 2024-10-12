@@ -1,6 +1,6 @@
 Notes:
 
-KSP didn't work for HILT. Thus added Kapt for now.
+KAPT is added as plugin but not used. Using KSP for hilt.
 
 These are dependencies on version with Kotlin and Hilt so if encountered such issues, 
 check for supported version of Kotlin with Hilt compatibility.
@@ -12,4 +12,4 @@ Update: For now, you can use the newest version.
 
 https://stackoverflow.com/questions/67744002/hilt-unsupported-metadata-version-in-kotlin
 
-In future, will transition to KSP plugin.
+This project contains : Keybindings.txt for my custom key shortcuts for Android studio IDE.
