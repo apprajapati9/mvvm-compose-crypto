@@ -1,6 +1,6 @@
 [versions]
 agp = "8.6.1"
-kotlin = "1.9.0"
+kotlin = "2.0.21"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -16,7 +16,8 @@ hilt-compiler ="1.2.0"
 
 #plugin
 ksp-v ="2.0.21-1.0.25"
-hilt-plugin = "2.42"
+hilt-plugin = "2.51.1"
+kapt-v = "1.9.25"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -38,8 +39,8 @@ retrofit = {group ="com.squareup.retrofit2", name="retrofit", version.ref ="retr
 retrofit-gson = { group ="com.squareup.retrofit2", name="converter-gson", version.ref="retrofit"}
 compose-nav = {group = "androidx.navigation", name ="navigation-compose", version.ref="compose-navigation"}
 hilt-di = { module="com.google.dagger:hilt-android", version.ref="hilt"}
-hilt-viewmodel = {module = "androidx.hilt:hilt-lifecycle-viewmodel", version.ref="hilt-viewmodel"}
-hilt-android-compiler-ksp = { module = "com.google.dagger:hilt-android-compiler", version.ref="hilt" }
+#hilt-viewmodel = {module = "androidx.hilt:hilt-lifecycle-viewmodel", version.ref="hilt-viewmodel"}
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref="hilt" }
 hilt-compiler-ksp = {module="androidx.hilt:hilt-compiler", version.ref="hilt-compiler"}
 hilt-nav-compose = {module="androidx.hilt:hilt-navigation-compose", version.ref="hilt-viewmodel"}
 
@@ -47,6 +48,7 @@ hilt-nav-compose = {module="androidx.hilt:hilt-navigation-compose", version.ref=
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 #Hilt plugins
-hilt-android = { id = "com.google.dagger.hilt.android", version.ref ="hilt-plugin"}
-ksp-plugin =  { id = "com.google.devtools.ksp", version.ref="ksp-v" }
-
+com-google-dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref ="hilt-plugin"}
+com-google-devtools-ksp =  { id = "com.google.devtools.ksp", version.ref="ksp-v" }
+org-jetbrains-kotlin-kapt = {id = "org.jetbrains.kotlin.kapt", version.ref="kapt-v" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

@@ -1,10 +1,10 @@
-import com.google.devtools.ksp.gradle.model.Ksp
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.ksp.plugin)
-    alias(libs.plugins.hilt.android)
+    //alias(libs.plugins.com.google.devtools.ksp)
+    alias(libs.plugins.com.google.dagger.hilt.android)
+    alias(libs.plugins.org.jetbrains.kotlin.kapt)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -44,7 +44,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.15"
     }
     packaging {
         resources {
@@ -82,9 +82,11 @@ dependencies {
 
     //Hilt DI
     implementation(libs.hilt.di)
-    ksp(libs.hilt.android.compiler.ksp)
-    implementation(libs.hilt.viewmodel)
+    //ksp(libs.hilt.android.compiler.ksp)
+    kapt(libs.hilt.android.compiler)
+    //implementation(libs.hilt.viewmodel)
     implementation(libs.hilt.nav.compose)
-    ksp(libs.hilt.compiler.ksp)
+    //ksp(libs.hilt.compiler.ksp)
+    kapt(libs.hilt.compiler.ksp)
 
 }

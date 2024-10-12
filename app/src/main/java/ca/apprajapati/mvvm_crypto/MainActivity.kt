@@ -16,17 +16,16 @@ import ca.apprajapati.mvvm_crypto.presentation.coin_list.CoinsListViewModel
 import ca.apprajapati.mvvm_crypto.domain.use_case.get_coins.GetCoinsUseCase
 import ca.apprajapati.mvvm_crypto.presentation.coin_list.component.CoinListScreen
 import ca.apprajapati.mvvm_crypto.ui.theme.MvvmcryptoTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
             //enableEdgeToEdge() // Disabling that mode TODO: check how to resize views and customize look
 
-        val model : CoinsListViewModel = ViewModelProvider(
-            this,
-            ViewModelFactory(GetCoinsUseCase())
-        )[CoinsListViewModel::class.java]
+
 
         setContent {
             MvvmcryptoTheme {
@@ -39,8 +38,7 @@ class MainActivity : ComponentActivity() {
                         startDestination = Screen.CoinListScreen.route) {
 
                         composable (route = Screen.CoinListScreen.route) {
-                            CoinListScreen(navController= navController,
-                                viewModel = model
+                            CoinListScreen(navController= navController
                             )
                         }
                     }
@@ -50,6 +48,14 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    //This is to provide custom constructor initialization for viewmodel.
+    /* How to use below method
+        val model : CoinsListViewModel = ViewModelProvider(
+            this,
+            ViewModelFactory(GetCoinsUseCase())
+        )[CoinsListViewModel::class.java]
+
+     */
     class ViewModelFactory(private val useCase : GetCoinsUseCase) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if(modelClass.isAssignableFrom(CoinsListViewModel::class.java)){

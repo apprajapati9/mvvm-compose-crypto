@@ -5,13 +5,16 @@ import androidx.lifecycle.viewModelScope
 import ca.apprajapati.mvvm_crypto.common.Resource
 import ca.apprajapati.mvvm_crypto.domain.model.CoinListState
 import ca.apprajapati.mvvm_crypto.domain.use_case.get_coins.GetCoinsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import javax.inject.Inject
 
-class CoinsListViewModel(val coinListUseCase: GetCoinsUseCase) : ViewModel() {
+@HiltViewModel
+class CoinsListViewModel @Inject constructor(val coinListUseCase: GetCoinsUseCase) : ViewModel() {
 
 
     //Using stateflow instead of State from compose because it is a superior approach

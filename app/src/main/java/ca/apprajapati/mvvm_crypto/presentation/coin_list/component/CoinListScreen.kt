@@ -15,13 +15,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import ca.apprajapati.mvvm_crypto.presentation.coin_list.CoinsListViewModel
 
 @Composable
 fun CoinListScreen(
     navController: NavController,
-    viewModel : CoinsListViewModel // can get it easily here using Hilt di
+    viewModel : CoinsListViewModel = hiltViewModel() // can get it easily here using Hilt di
 ) {
 
     //val viewModel: CoinsListViewModel = viewModel()
