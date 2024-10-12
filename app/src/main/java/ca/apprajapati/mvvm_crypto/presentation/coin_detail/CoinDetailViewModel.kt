@@ -2,11 +2,13 @@ package ca.apprajapati.mvvm_crypto.presentation.coin_detail
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import ca.apprajapati.mvvm_crypto.common.Resource
 import ca.apprajapati.mvvm_crypto.domain.use_case.get_coin.GetCoinDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
@@ -34,16 +36,17 @@ class CoinDetailViewModel @Inject constructor(
                 result ->
             when(result){
                 is Resource.Success -> {
-                    _coinDetailState.value = CoinDetailState(details = result.data)
+                    _coinDetailState.value = CoinDetailState(coinDetail = result.data)
                 }
 
                 is Resource.Error -> {
                     _coinDetailState.value = CoinDetailState(error = result.message)
                 }
 
-                is Resource.Loading ->  CoinDetailState(isLoading = true)
+                is Resource.Loading ->
+                    _coinDetailState.value = CoinDetailState(isLoading = true)
             }
-        }
+        }.launchIn(viewModelScope)
     }
 
 }

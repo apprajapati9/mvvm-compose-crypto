@@ -14,6 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import ca.apprajapati.mvvm_crypto.presentation.Screen
 import ca.apprajapati.mvvm_crypto.presentation.coin_list.CoinsListViewModel
 import ca.apprajapati.mvvm_crypto.domain.use_case.get_coins.GetCoinsUseCase
+import ca.apprajapati.mvvm_crypto.presentation.coin_detail.component.CoinDetailScreen
 import ca.apprajapati.mvvm_crypto.presentation.coin_list.component.CoinListScreen
 import ca.apprajapati.mvvm_crypto.ui.theme.MvvmcryptoTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,6 +41,9 @@ class MainActivity : ComponentActivity() {
                         composable (route = Screen.CoinListScreen.route) {
                             CoinListScreen(navController= navController
                             )
+                        }
+                        composable( route = Screen.CoinDetailScreen.route + "/{coinId}") {
+                            CoinDetailScreen()
                         }
                     }
 

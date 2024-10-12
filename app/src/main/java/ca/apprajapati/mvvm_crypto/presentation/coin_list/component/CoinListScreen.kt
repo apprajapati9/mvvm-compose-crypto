@@ -17,6 +17,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import ca.apprajapati.mvvm_crypto.presentation.Screen
 import ca.apprajapati.mvvm_crypto.presentation.coin_list.CoinsListViewModel
 
 @Composable
@@ -37,8 +38,7 @@ fun CoinListScreen(
             items(state.value.coins){
                 coin ->
                     CoinListItem(coin = coin, onItemClick = {
-                       //navController.navigateUp()  //TODO = to another screen.
-                        //navController.navigate(Screen.CoinDetailScreen.route + "/${coin.id}")
+                        navController.navigate(Screen.CoinDetailScreen.route + "/${coin.id}")
                     })
             }
         }
